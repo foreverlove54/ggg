@@ -6,7 +6,7 @@
 #define COLS 9 //列9
 #define MINES 10//10个雷
 
-void print(char board[ROWS][COLS])//打印棋盘
+void printf(char board[ROWS][COLS])//打印棋盘
 {
     printf("\n  ");
     for (int j = 0; j < COLS; j++)
@@ -73,7 +73,7 @@ int main(void)
     }
 
     while (opened < ROWS * COLS - MINES) {
-        print(show);
+        printf(show);
         printf("请输入行和列：");
 
         if (scanf("%d%d", &r, &c) != 2) return 0;
@@ -85,7 +85,7 @@ int main(void)
 
         if (mine[r][c] == '*') {
             show[r][c] = 'X';
-            print(show);
+            printf(show);
             printf("你踩雷了！\n");
             return 0;
         }
@@ -93,7 +93,7 @@ int main(void)
         openCell(mine, show, r, c, &opened);//翻开周围格子
     }
 
-    print(show);
+    printf(show);
     printf("恭喜你，扫雷成功！\n");
     return 0;
 }
